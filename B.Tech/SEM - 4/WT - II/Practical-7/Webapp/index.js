@@ -30,8 +30,4 @@ app.get("/product",(req,res)=>{
 
 app.listen(3000,()=>{
     console.log("Server Screated At 3000");
-    
-    setInterval(()=>{
-        process.exit(0);
-    },5000)
 })
