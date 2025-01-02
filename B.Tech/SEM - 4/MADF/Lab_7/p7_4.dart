@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class p7_4 extends StatelessWidget {
-  p7_4({super.key});
+class PrintValueFromDecoretedTextField extends StatelessWidget {
+  PrintValueFromDecoretedTextField({super.key});
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -11,6 +11,7 @@ class p7_4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Decoration of TextFormFiled"),),
       body: Center(
         child: Form(
             key: _formKey,
@@ -19,6 +20,7 @@ class p7_4 extends StatelessWidget {
                 TextFormField(
                   controller: name,
                   decoration: InputDecoration(
+                    hintText: "Enter an Content",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30))),
                 ),

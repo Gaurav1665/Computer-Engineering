@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class p8_4 extends StatefulWidget {
-  const p8_4({super.key});
+class RollTheDice extends StatefulWidget {
+  const RollTheDice({super.key});
 
   @override
-  State<p8_4> createState() => _p8_4State();
+  State<RollTheDice> createState() => _RollTheDiceState();
 }
 
-class _p8_4State extends State<p8_4> {
+class _RollTheDiceState extends State<RollTheDice> {
   int i = 1;
   @override
   Widget build(BuildContext context)

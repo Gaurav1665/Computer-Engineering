@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class p6_2 extends StatelessWidget{
+class VerticalScreenParts extends StatelessWidget{
+  const VerticalScreenParts({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

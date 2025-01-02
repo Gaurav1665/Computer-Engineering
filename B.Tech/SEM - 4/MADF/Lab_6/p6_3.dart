@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class p6_3 extends StatelessWidget{
+class EqualParts extends StatelessWidget{
+  const EqualParts({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,8 @@ class p6_3 extends StatelessWidget{
   }
 }
 
-// class p6_3 extends StatelessWidget{
+// class FlexDemo extends StatelessWidget{
+// const FlexDemo({super.key});
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class p7_5 extends StatefulWidget {
-  p7_5({super.key});
+class PrintValueOnScreen extends StatefulWidget {
+  PrintValueOnScreen({super.key});
 
   @override
-  State<p7_5> createState() => _p7_5State();
+  State<PrintValueOnScreen> createState() => _PrintValueOnScreenState();
 }
 
-class _p7_5State extends State<p7_5> {
+class _PrintValueOnScreenState extends State<PrintValueOnScreen> {
   TextEditingController content = TextEditingController();
 
 

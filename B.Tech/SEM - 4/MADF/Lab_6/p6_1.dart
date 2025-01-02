@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class p6_1 extends StatelessWidget{
+class HorizontalScreenParts extends StatelessWidget{
+  const HorizontalScreenParts({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class p8_2 extends StatelessWidget {
-  const p8_2({super.key});
+class TextOverImage extends StatelessWidget {
+  const TextOverImage({super.key});
 
   @override
   Widget build(BuildContext context) {

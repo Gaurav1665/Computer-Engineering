@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class p7_2 extends StatelessWidget{
+class CustomTextWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
