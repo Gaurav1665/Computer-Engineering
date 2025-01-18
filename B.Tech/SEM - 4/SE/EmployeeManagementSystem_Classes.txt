@@ -1,105 +1,70 @@
+Admin -> Manager: Assigns and deallocates managers.
+Admin -> Employee: Manages employee records.
+Manager -> Employee: Assigns tasks and oversees their work.
+Manager -> Task: Creates and manages tasks for employees.
+Employee -> Task: Updates task status.
+Employee -> LeaveRequest: Applies for leave.
+Manager -> LeaveRequest: Approves or denies leave requests.
+Department -> Employee: Groups employees into departments.
+Salary -> Employee: Associates salary details with employees.
 
-### 1. Admin
-Attributes:
-- adminID: int
-- name: string
-- email: string
-- password: string
 
-Methods:
-+ addEmployee(employeeDetails: object): void
-+ editEmployeeDetails(employeeID: int, updatedDetails: object): void
-+ grantPrivileges(employeeID: int, privileges: string): void
-+ revokePrivileges(employeeID: int, privileges: string): void
-+ assignManager(employeeID: int): void
-+ deallocateManager(managerID: int): void
-+ manageEmployeeRecords(): list
-+ login(email: string, password: string): bool
-+ logout(): void
+1. Admin and Manager
+Type: One-to-Many
+Description:
+One Admin can assign or deallocate multiple Managers.
+Each Manager is managed by one Admin.
 
-### 2. Manager
-Attributes:
-- managerID: int
-- name: string
-- department: string
-- email: string
-- password: string
+2. Admin and Employee
+Type: One-to-Many
+Description:
+One Admin can add or manage multiple Employees.
+Each Employee is managed by one Admin.
 
-Methods:
-+ approveLeaveRequests(leaveRequestID: int): void
-+ assignRoles(employeeID: int, role: string): void
-+ assignTasks(employeeID: int, taskDetails: object): void
-+ updateEmployeeDepartment(employeeID: int, department: string): void
-+ viewLeaveRecords(): list
-+ login(email: string, password: string): bool
-+ logout(): void
+3. Manager and Employee
+Type: One-to-Many
+Description:
+One Manager oversees multiple Employees in their team.
+Each Employee reports to one Manager.
 
-### 3. Employee
-Attributes:
-- employeeID: int
-- name: string
-- role: string
-- department: string
-- salary: float
-- email: string
-- password: string
+4. Manager and Task
+Type: One-to-Many
+Description:
+One Manager assigns multiple tasks to Employees.
+Each Task is created and assigned by one Manager.
 
-Methods:
-+ updateTaskStatus(taskID: int, status: string): void
-+ applyForLeave(leaveDetails: object): void
-+ viewSalaryDetails(): list
-+ login(email: string, password: string): bool
-+ logout(): void
+5. Employee and Task
+Type: One-to-Many
+Description:
+One Employee can work on multiple Tasks.
+Each Task is assigned to one Employee.
 
-### 4. Task
-Attributes:
-- taskID: int
-- title: string
-- description: string
-- assignedTo: int
-- status: string
-- deadline: string
+6. Employee and LeaveRequest
+Type: One-to-Many
+Description:
+One Employee can submit multiple Leave Requests.
+Each Leave Request belongs to one Employee.
 
-Methods:
-+ updateStatus(newStatus: string): void
-+ viewTaskDetails(): object
+7. Manager and LeaveRequest
+Type: One-to-Many
+Description:
+One Manager can approve or deny multiple Leave Requests from their team.
+Each Leave Request is approved or denied by one Manager.
 
-### 5. LeaveRequest
-Attributes:
-- leaveRequestID: int
-- employeeID: int
-- startDate: string
-- endDate: string
-- reason: string
-- status: string
+8. Employee and Department
+Type: Many-to-One
+Description:
+Multiple Employees belong to one Department.
+Each Department contains multiple Employees.
 
-Methods:
-+ applyForLeave(): void
-+ approveLeave(): void
-+ denyLeave(): void
-+ viewLeaveStatus(): string
+9. Manager and Department
+Type: One-to-One
+Description:
+Each Department is managed by one Manager.
+One Manager manages one Department.
 
-### 6. Department
-Attributes:
-- departmentID: int
-- name: string
-- managerID: int
-- employeeCount: int
-
-Methods:
-+ addEmployeeToDepartment(employeeID: int): void
-+ removeEmployeeFromDepartment(employeeID: int): void
-+ updateDepartmentDetails(departmentDetails: object): void
-
-### 7. Salary
-Attributes:
-- employeeID: int
-- basicPay: float
-- allowances: float
-- deductions: float
-- netSalary: float
-- paymentHistory: list
-
-Methods:
-+ calculateNetSalary(): float
-+ viewSalaryDetails(): list
+10. Employee and Salary
+Type: One-to-One
+Description:
+Each Employee has one Salary record.
+Each Salary record belongs to one Employee.
