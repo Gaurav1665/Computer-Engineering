@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import ProductPost from "./ProductPost";
-import ProductGetAll from "./productGetAll";
+import ProductGetAll from "./ProductGetAll";
 
 const staticData = [
     {

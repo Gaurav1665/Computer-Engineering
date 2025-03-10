@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ProductGetAll(props){
     const setProducts = props.setProducts;
     const products = props.products;
-
+    const navigate = useNavigate();
 
     return(
         <>
@@ -21,7 +21,9 @@ export default function ProductGetAll(props){
                                 <button className="m-1" onClick={(e)=>{
                                     setProducts(products.filter((value)=>value.LaptopName != product.LaptopName))
                                 }}>Delete</button>
-                                <button className="m-1" onClick={()=>{}}>Edit</button>
+                                <button className="m-1" onClick={(p)=>{
+                                    navigate('/add', {state : product})
+                                }}>Edit</button>
                             </div>
                         </div>
                     ))

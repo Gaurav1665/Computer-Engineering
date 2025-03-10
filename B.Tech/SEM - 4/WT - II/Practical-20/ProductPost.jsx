@@ -1,12 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function ProductPost(props){
+    const location = useLocation();
     const setProducts = props.setProducts;
     const products = props.products;
+    const product = location.state;
+    const navigate = useNavigate();
+    
 
-    const [data, setData] = useState({LaptopName:"",LaptopCompany:"",LaptopPrice:""});
-    const naviagte = useNavigate();
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        setData(product == null ? {LaptopName:"",LaptopCompany:"",LaptopPrice:"",_id:products.length+1}: product)
+    },[]);
+
     return(
         <>
             <table>
@@ -25,10 +33,28 @@ export default function ProductPost(props){
                     </tr>
                     <tr>
                         <td colSpan={2}>
-                            <button className="m-1" onClick={()=>{
-                                setProducts([...products,data])
-                                naviagte("/")
-                            }} >Add Product</button>
+                            { product==null 
+                              ? <button className="m-1" onClick={()=>{
+                                    setProducts([...products,data])
+                                    navigate("/")
+                                }} >Add Product</button>
+                              : <button className="m-1" onClick={()=>{
+
+                                    const updatedProduct = products.map((e)=>{
+                                        
+                                        if(e._id == product._id){
+                                            return {...e,...data}
+                                        }
+                                        else{
+                                            return {...e}
+                                        }
+                                    })
+                                    
+                                    
+                                    setProducts(updatedProduct)
+                                    navigate("/")
+                                }} >Update Product</button>
+                            }
                         </td>
                     </tr>
                 </tbody>
