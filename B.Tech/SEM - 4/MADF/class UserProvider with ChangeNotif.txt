@@ -1,0 +1,82 @@
+class UserProvider with ChangeNotifier {
+
+  Future<List<UserModel>> fetchUser({required BuildContext context}) async {
+    final response = await http.get(Uri.parse("https://67c1d88661d8935867e47956.mockapi.io/user/users"));
+
+    if (response.statusCode == 200) {
+      List<dynamic> userMaps = jsonDecode(response.body);
+      List<UserModel> users = userMaps.map((userMap) => UserModel(
+        userId: int.parse(userMap['id']),  // Changed 'userId' to 'id' as per your JSON
+        userFullName: userMap['name'],  // Changed 'userFullName' to 'name'
+        userEmail: userMap['email'],  // Changed 'userEmail' to 'email'
+        userCity: userMap['city'],  // Changed 'userCity' to 'city'
+      )).toList();
+      return users;
+    } else {
+      return [];
+    }
+  }
+
+  Future<UserModel> fetchUserById({required BuildContext context, required int userId}) async {
+    final response = await http.get(Uri.parse('https://67c1d88661d8935867e47956.mockapi.io/user/users/$userId'));
+
+    if (response.statusCode == 200) {
+      final userMap = jsonDecode(response.body);
+      UserModel user = UserModel(
+        userId: int.parse(userMap['id']),  // Changed 'userId' to 'id' as per your JSON
+        userFullName: userMap['name'],  // Changed 'userFullName' to 'name'
+        userEmail: userMap['email'],  // Changed 'userEmail' to 'email'
+        userCity: userMap['city'],  // Changed 'userCity' to 'city'
+      );
+      return user;
+    } else {
+      throw Exception('Failed to load user');
+    }
+  }
+
+  Future<void> addUser({required BuildContext context, required UserModel user}) async {
+    final response = await http.post(
+      Uri.parse("https://67c1d88661d8935867e47956.mockapi.io/user/users"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        'name': user.userFullName,  // Changed 'userFullName' to 'name'
+        'email': user.userEmail,  // Changed 'userEmail' to 'email'
+        'city': user.userCity,  // Changed 'userCity' to 'city'
+      }),
+    );
+    Fluttertoast.showToast(msg: "User Added Successfully", backgroundColor: Colors.greenAccent);
+
+    if (response.statusCode != 201) {
+      throw Exception('Failed to add user');
+    }
+  }
+
+  Future<void> updateUser({required BuildContext context, required UserModel user}) async {
+    final response = await http.put(
+      Uri.parse('https://67c1d88661d8935867e47956.mockapi.io/user/users/${user.userId}'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({
+        'name': user.userFullName,  // Changed 'userFullName' to 'name'
+        'email': user.userEmail,  // Changed 'userEmail' to 'email'
+        'city': user.userCity,  // Changed 'userCity' to 'city'
+      }),
+    );
+    Fluttertoast.showToast(msg: "User Updated Successfully", backgroundColor: Colors.greenAccent);
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update user');
+    }
+  }
+
+  Future<void> deleteUser({required BuildContext context, required int userId}) async {
+    final response = await http.delete(Uri.parse('https://67c1d88661d8935867e47956.mockapi.io/user/users/$userId'));
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete user');
+    }
+  }
+}
