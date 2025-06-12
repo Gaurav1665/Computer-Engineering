@@ -1,0 +1,37 @@
+Networking Devices
+
+OSI Layers
+
+1. MODEM:
+	works on physical level, convert digital signal to analog signal
+	two types : i)DSL(Digital subscribe Line) ii)ADSL(Asymmetric DSL)
+
+2. NIC (Network Interface Card):
+	allows device to connect to the internet
+	supports wired and wireless
+	use MAC to identify device on the network
+	works on Data Link level
+
+3.Repeater:
+	receive and retransmit the signal
+	works on physical level
+	two types of repeater: wired and wireless
+	wired repeater has only two ports for receive and other for transmit
+	
+4.HUB ():
+	multiport device to transfer data multiple devices
+	works on physical level
+	types: 
+		passive: works as a mediator, only pass the data
+		active: pass the data also boost and clear it
+		intelligent: works as network management and congestion control
+	used in LAN only
+
+5.Switch:
+	telecommunication device, only sent to specific device
+	works on Data Link level
+	also known as multiport bridge.
+	switch does not know which device is connected to which device
+	switch broadcast the data to get port no and MAC address.
+	it is also multiport
+	

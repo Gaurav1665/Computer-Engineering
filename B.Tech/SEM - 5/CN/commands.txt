@@ -1,0 +1,50 @@
+ipconfig : Displays all current TCP/IP network configuration values and refreshes Dynamic Host Configuration Protocol (DHCP) and Domain Name System (DNS) settings
+
+ipconfig /all: Displays the full TCP/IP configuration for all adapters
+
+------------------------------------------------------------------------------------------------------------------
+
+ping:Verifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) echo Request messages
+ping -t: Specifies ping continue sending echo Request messages to the destination until interrupted.
+ping -a: Specifies reverse name resolution be performed on the destination IP address.
+ping -n 10: Specifies the number of echo Request messages be sent. The default is 4.
+ping -l 50: Specifies the length, in bytes, of the Data field in the echo Request messages. The default is 32. The maximum size is 65,500.
+
+------------------------------------------------------------------------------------------------------------------
+
+getmac:Returns the media access control (MAC) address and list of network protocols associated with each address for all network cards in each computer, either locally or across a network
+getmac -v: Specifies that the output display verbose information.
+getmac -nh: Suppresses column header in output. Valid when the /fo parameter is set to table or csv.
+getmac -fo: Specifies the format to use for the query output. Valid values are table, list, and csv. The default format for output is table.
+
+------------------------------------------------------------------------------------------------------------------
+
+nslookup: Displays information that you can use to diagnose Domain Name System (DNS) infrastructure
+tracert:
+tracert -d:
+tracert -h 5:
+tracert -w 100:
+
+pathping:
+hostname / systemname:
+
+revercens:
+
+
+
+
+
+
+
+
+
+ping -a, -l, -t, -n
+ipconfig /ifconfig /all /release /renew
+getmac
+hostname
+systeminfo /FO
+nslookup [-opt] server, [-opt] host
+tracert /traceroute -d, -h, -w
+pathping -h, -g, -l
+netstat -a, -b, -c
+arp -a, -d, -s
