@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaurav/Lab-3/Practical-2/CRUDDBAdd.dart';
 import 'package:gaurav/Lab-3/Practical-2/CRUDDBController.dart';
 import 'package:gaurav/Lab-3/Practical-2/CRUDDBModel.dart';
 import 'package:get/get.dart';
@@ -15,18 +16,23 @@ class _CRUDDBViewState extends State<CRUDDBView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("CRUD DB"),),
+      appBar: AppBar(
+        title: Text("CRUD DB"),
+        actions: [
+          IconButton(onPressed: () => Get.to(CRUDDBAdd()), icon: Icon(Icons.add))
+        ],
+      ),
       body: FutureBuilder(
         future: cdc.fetchUser(), 
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Expanded(child: Center(child: CircularProgressIndicator(color: Color(0xff003366),)));
+            return Center(child: CircularProgressIndicator(color: Color(0xff003366),));
           }
           if (snapshot.hasError) {
-            return Expanded(child: Center(child: Text("Error: ${snapshot.error}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600), textAlign: TextAlign.center,),),);
+            return Center(child: Text("Error: ${snapshot.error}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600), textAlign: TextAlign.center,),);
           }
           if (snapshot.data == null || snapshot.data!.isEmpty) {
-            return Expanded(child: Center(child: Text("No User Found", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600), textAlign: TextAlign.center,),),);
+            return Center(child: Text("No User Found", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600), textAlign: TextAlign.center,),);
           }
           List<CRUDDBModel> users = snapshot.data!;
           return ListView.builder(
@@ -41,10 +47,11 @@ class _CRUDDBViewState extends State<CRUDDBView> {
                 ),
                 trailing: IconButton(
                   onPressed: () async{
-                    await cdc.deleteUser(UID: users[index].UID);
+                    await cdc.deleteUser(UID: users[index].UID!);
                   }, 
                   icon: Icon(Icons.delete)
                 ),
+                onTap: () => Get.to(CRUDDBAdd(userId: users[index].UID,)),
               );
             },
           );

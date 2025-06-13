@@ -19,6 +19,7 @@ class _CRUDDBAddState extends State<CRUDDBAdd> {
 
   TextEditingController? nameController;
   TextEditingController? cityController;
+  String? selectedGender;
 
   CRUDDBController cdc = Get.put(CRUDDBController());
 
@@ -31,6 +32,7 @@ class _CRUDDBAddState extends State<CRUDDBAdd> {
 
     } else{
       nameController = TextEditingController();
+      selectedGender = "";
       cityController = TextEditingController();
     }
   }
@@ -38,6 +40,7 @@ class _CRUDDBAddState extends State<CRUDDBAdd> {
   void loadUserData()async{
     CRUDDBModel user = await cdc.fetchUserById(UID: widget.userId!);
     nameController = TextEditingController(text: user.Name);
+    selectedGender = user.Gender;
     cityController = TextEditingController(text: user.City);
   }
 
@@ -51,16 +54,38 @@ class _CRUDDBAddState extends State<CRUDDBAdd> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomTextFormField(controller: nameController, labelText: "User Name"),
+            const SizedBox(height: 20),
+            Container(
+              height: 50,
+              decoration: BoxDecoration(border: Border.all(color: Color(0xff2C2C2C)), borderRadius: BorderRadius.circular(12)),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Gender", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff2C2C2C))),
+                  Row(
+                    children: [
+                      Radio<String>(value: "Male", groupValue: selectedGender, onChanged: (String? value) => setState(() => selectedGender = value)),
+                      const Text("Male"),
+                      const SizedBox(width: 10),
+                      Radio<String>(value: "Female", groupValue: selectedGender, onChanged: (String? value) => setState(() => selectedGender = value)),
+                      const Text("Female"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
             const SizedBox(height: 20,),
-            CustomTextFormField(controller: cityController, labelText: "User Email"),
+            CustomTextFormField(controller: cityController, labelText: "User City"),
             const SizedBox(height: 20,),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async{
                 if(widget.userId == null){
-                  
+                  cdc.addUser(user: CRUDDBModel(Name: nameController!.text, City: cityController!.text, Gender: selectedGender!));
                   Get.back();
                 } else {
-                  
+                  cdc.updateUser(user: CRUDDBModel(UID: widget.userId ,Name: nameController!.text, City: cityController!.text, Gender: selectedGender!));
                   Get.back();
                 }
               }, 
