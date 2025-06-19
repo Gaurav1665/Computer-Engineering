@@ -1,4 +1,4 @@
-import 'package:gaurav/Lab-2/Practical-1/FavoriteListModel.dart';
+import 'package:practicals/Lab-2/Practical-1/FavoriteListModel.dart';
 
 class FavoriteListController{
 

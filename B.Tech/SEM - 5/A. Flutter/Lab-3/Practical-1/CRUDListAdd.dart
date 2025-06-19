@@ -1,10 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListController.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListModel.dart';
+import 'package:practicals/Lab-3/Practical-1/CRUDListController.dart';
+import 'package:practicals/Lab-3/Practical-1/CRUDListModel.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class CRUDListAdd extends StatefulWidget {
   int? userId;
   CRUDListAdd({super.key, this.userId});

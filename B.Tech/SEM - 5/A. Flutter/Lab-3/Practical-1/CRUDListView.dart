@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListAdd.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListController.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListModel.dart';
+import 'package:practicals/Lab-3/Practical-1/CRUDListAdd.dart';
+import 'package:practicals/Lab-3/Practical-1/CRUDListController.dart';
+import 'package:practicals/Lab-3/Practical-1/CRUDListModel.dart';
 import 'package:get/get.dart';
 
 class CRUDListView extends StatelessWidget {

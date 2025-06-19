@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gaurav/Lab-2/Practical-2%20&%203/SignUpFormController.dart';
+import 'package:practicals/Lab-2/Practical-2%20&%203/SignUpFormController.dart';
 
 
 class SignUpFormView extends StatefulWidget {

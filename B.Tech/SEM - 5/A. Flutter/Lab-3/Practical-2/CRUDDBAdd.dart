@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gaurav/Lab-3/Practical-1/CRUDListModel.dart';
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBController.dart';
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBModel.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBController.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBModel.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class CRUDDBAdd extends StatefulWidget {
   int? userId;
   CRUDDBAdd({super.key, this.userId});

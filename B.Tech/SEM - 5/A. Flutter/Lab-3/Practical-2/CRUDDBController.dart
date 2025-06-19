@@ -1,11 +1,11 @@
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBModel.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBModel.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
 class CRUDDBController extends GetxController {
 
   Future<Database> initDatabase() async {
-    String path = 'asset/database/user.db';
+    String path = 'asset/user.db';
     return await openDatabase(path, onCreate: (db, version) async {
       await db.execute('''
         CREATE TABLE Users (

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gaurav/Lab-2/Practical-1/FavoriteListController.dart';
-import 'package:gaurav/Lab-2/Practical-1/FavoriteListModel.dart';
+import 'package:practicals/Lab-2/Practical-1/FavoriteListController.dart';
+import 'package:practicals/Lab-2/Practical-1/FavoriteListModel.dart';
 
 class FavoriteListView extends StatefulWidget {
   const FavoriteListView({super.key});

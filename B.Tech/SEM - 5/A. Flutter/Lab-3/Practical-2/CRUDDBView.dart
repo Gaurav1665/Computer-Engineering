@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBAdd.dart';
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBController.dart';
-import 'package:gaurav/Lab-3/Practical-2/CRUDDBModel.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBAdd.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBController.dart';
+import 'package:practicals/Lab-3/Practical-2/CRUDDBModel.dart';
 import 'package:get/get.dart';
 
 class CRUDDBView extends StatefulWidget {
