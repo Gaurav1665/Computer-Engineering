@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practicals/Lab-5/Practical-1%20&%202/getNavigationSecondPage.dart';
+import 'package:practicals/Lab-5/Practical-1%20&%202%20&%204/getNavigationSecondPage.dart';
 
 class GetNavigationFirstPage extends StatelessWidget {
   GetNavigationFirstPage({super.key});
@@ -22,7 +22,10 @@ class GetNavigationFirstPage extends StatelessWidget {
           ),
           SizedBox(height: 20,),
           ElevatedButton(
-            onPressed: ()=>Get.to(GetNavigationSecondPage(text: text.text,)),
+            onPressed: ()=>Get.to(
+              GetNavigationSecondPage(text: text.text,),
+              transition: Transition.cupertino,
+            ),
             child: Text("Next Page")
           )
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practicals/Lab-5/Practical-1%20&%202/getNavigationSecondPage.dart';
+import 'package:practicals/Lab-5/Practical-1%20&%202%20&%204/getNavigationSecondPage.dart';
 
 class GetNamedNavigationFirstPage extends StatelessWidget {
   const GetNamedNavigationFirstPage({super.key});

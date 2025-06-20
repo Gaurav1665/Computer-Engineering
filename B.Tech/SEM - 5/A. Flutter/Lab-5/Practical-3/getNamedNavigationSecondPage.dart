@@ -10,7 +10,7 @@ class GetNamedNavigationSecondPage extends StatelessWidget {
       appBar: AppBar(title: Text("Second Page"),),
       body: Center(
         child: ElevatedButton(
-            onPressed: ()=>Get.toNamed("/first"), 
+            onPressed: ()=>Get.offAllNamed("/"), 
             child: Text("Previous page")
           ),
       )
