@@ -1,88 +1,96 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class DFS {
 
     public static void main(String[] args) {
-        Queue q = new Queue();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Number of edges : ");
+        System.out.print("Enter Number of nodes : ");
         int n = sc.nextInt();
-        int[][] graph = new int[n][2];
-        int[] check = new int[n];
+
+
+        int[][] graph = new int[n][];
+        ArrayList<Integer> check = new ArrayList<Integer>();
 
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter edge of " + (i + 1) + " Node :");
-            for (int j = 0; j < 2; j++) {
-                graph[i][j] = sc.nextInt();
+            System.out.print("Enter Number of edges : ");
+            int m = sc.nextInt();
+            int[] node = new int[m];
+            for (int j = 0; j < m; j++) {
+                node[j] = sc.nextInt();
+            }
+            graph[i] = node;
+        }
+
+        System.out.print("Enter starting position : ");
+        int start = sc.nextInt();
+
+        Stack stack = new Stack(n);
+        stack.PUSH(start); 
+        
+        while (check.size() < n) {
+            int lastElement = stack.POP();
+            check.add(lastElement);
+            for(int i=0 ; i<graph[lastElement].length ; i++){
+                if (!check.contains(graph[lastElement][i])) {
+                    stack.PUSH(graph[lastElement][i]);
+                }
             }
         }
 
-        for (int i = 0; i < n; i++) {
-            if (!contains(check, graph[i][0]) || graph[i][0] == 0) {
-                check[i] = graph[i][0];
-                System.out.print(graph[i][0] + " => ");
-                for (int j = 0; j < n; j++) {
-                    if (graph[i][0] == graph[j][0]) {
-                        System.out.print(graph[j][1] + " ");
-                    }
-                }
-                System.out.println();
-            }
+        System.out.print("Check Array : ");
+        for(int i : check){
+            System.out.print(i+", ");
         }
         sc.close();
     }
+}
 
-    static boolean contains(int[] arr, int n) {
-        boolean fleg = false;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == n) {
-                fleg = true;
-            }
+class Stack{
+    int[] S;
+    int TOP;
+
+    Stack(int n){
+        S = new int[n];
+        TOP = -1;
+    }
+
+    void PUSH(int n){
+        if(TOP < S.length){
+            TOP++;
+            S[TOP] = n;
+        } else{
+            System.out.println("Stack Overflow");
         }
-        return fleg;
+    }
+
+    int POP(){
+        if(TOP != -1){
+            int deleted = S[TOP];
+            TOP--;
+            return deleted;
+        } else{
+            System.out.println("Stack UnderFow");
+            return -1;
+        }
+    }
+
+    void DISPLAY(){
+        for(int i=0 ; i<=TOP ; i++){
+            System.out.print(S[i]+", ");
+        }
+        System.out.println();
+    }
+
+    boolean contains(int x){
+        for(int i=0 ; i<=TOP ; i++ ){
+            if(S[i] == x)
+                return true;
+        }
+        return false;
     }
 }
 
-class Queue {
 
-    int[] Q;
-    int F, R;
-
-    public Queue() {
-        int[] Q = new int[10];
-        int f, r = -1;
-    }
-
-    void PUSH(int n) {
-        if (R < Q.length) {
-            R++;
-            Q[R] = n;
-        } else if (F == R) {
-            R = F = 0;
-            Q[R] = n;
-        } else {
-            System.out.println("Queue Overflow");
-        }
-    }
-
-    int POP() {
-        if (F == 0) {
-            System.out.println("Queue Underflow");
-            return 0;
-        } else if (F == R) {
-            int deleted = Q[F];
-            F = R = -1;
-            return deleted;
-        } else {
-            int deleted = Q[F];
-            F++;
-            return deleted;
-        }
-    }
-
-    void DISPLAY() {
-        for (int i = F; i <= R; i++) {
-            System.out.print(Q[i] + ", ");
-        }
-    }
-}
+//stack : 
+//check : 2,1,4
