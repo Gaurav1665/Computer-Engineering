@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BFS {
@@ -7,11 +10,7 @@ public class BFS {
         int n = sc.nextInt();
 
         int[][] graph = new int[n][];
-        int[] check = new int[n];
-        for(int i=0 ; i<n ; i++){
-            check[i] = -1;
-        }
-        int checkIncrement = 0;
+        ArrayList<Integer> check = new ArrayList<Integer>();
 
         for (int i = 0; i < n; i++) {
             System.out.print("Enter Number of edges : ");
@@ -23,26 +22,24 @@ public class BFS {
             graph[i] = node;
         }
 
-        Queue queue = new Queue();
+        Queue<Integer> queue = new LinkedList<>();
         
-        queue.ENQUEUE(0);
+        queue.add(0);
         for(int i=0 ; i<n ; i++){
             for(int j=0 ; j<graph[i].length ; j++){
-                if (!contains(queue.Q, graph[i][j]) && !contains(check, graph[i][j])) {
-                    queue.ENQUEUE(graph[i][j]);
+                if (!queue.contains(graph[i][j]) && !check.contains(graph[i][j])) {
+                    queue.add(graph[i][j]);
                 } else{
-                    int node = queue.DEQUEUE();
+                    int node = queue.remove();
                     if(node != -1){
-                        check[checkIncrement] = node;
-                        checkIncrement++;
+                        check.add(node);
                     }
                 }
             }
         }
 
-        for(int i=0 ; i<n ; i++){
-            System.out.print(check[i]+", ");
-        }
+        check.forEach(t -> System.out.print(t+", "));
+        sc.close();
     }
 
     static boolean contains(int[] arr, int n) {
@@ -53,53 +50,5 @@ public class BFS {
             }
         }
         return fleg;
-    }
-}
-
-class Queue {
-    int[] Q = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-    int F, R;
-
-    Queue() {
-        F = R = -1;
-    }
-
-    void ENQUEUE(int n) {
-        if (R == -1) {
-            R = F = 0;
-            Q[R] = n;
-        } else if (R < Q.length) {
-            R++;
-            Q[R] = n;
-        } else {
-            System.out.println("Queue Overflow");
-        }
-    }
-
-    int DEQUEUE() {
-        if (F == -1) {
-            System.out.println("Queue Underflow");
-            return -1;
-        } else if (F == R) {
-            int deleted = Q[F];
-            F = R = -1;
-            return deleted;
-        } else {
-            int deleted = Q[F];
-            F+=1;
-            return deleted;
-        }
-    }
-
-    void DISPLAY() {
-        if(F != -1 ){
-            for (int i = F; i <= R; i++) {
-                System.out.print(Q[i] + ", ");
-            }
-            System.out.println();
-        }
-        else{
-            System.out.println("Queue Underflow");
-        }
     }
 }
