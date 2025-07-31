@@ -1,7 +1,7 @@
 name: profile_card_pub
-description: "A new Flutter package project."
+description: "A customizable Flutter widget for displaying user profile information in an elegant card format with avatar, contact details, and flexible styling options."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Gaurav1665/Computer-Engineering/edit/main/B.Tech/SEM%20-%205/A.%20Flutter/Lab-14/Practical-1/profile_card_pub
 
 environment:
   sdk: ^3.8.1
