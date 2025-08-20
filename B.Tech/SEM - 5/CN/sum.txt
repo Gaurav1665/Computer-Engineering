@@ -1,0 +1,9 @@
+192.168.10.0/25
+
+subnet mask 	: 255.255.255.128
+subnet no   	: 2^n = 2^1 = 2
+no of subnet	: 2^n = 2^7 = 128
+host per subnet : 128-2 = 126
+
+first address - last address of each subnet: 192.168.10.0   - 192.168.10.127
+					     192.168.10.128 - 192.168.10.255
