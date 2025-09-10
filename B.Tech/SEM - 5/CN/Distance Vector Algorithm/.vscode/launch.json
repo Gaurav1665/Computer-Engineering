@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "DijkstraCorrected",
+            "request": "launch",
+            "mainClass": "DijkstraCorrected",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        },
+        {
+            "type": "java",
+            "name": "dijkstraAlgorithm",
+            "request": "launch",
+            "mainClass": "dijkstraAlgorithm",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        },
+        {
+            "type": "java",
+            "name": "NetworkSimulator",
+            "request": "launch",
+            "mainClass": "NetworkSimulator",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        },
+        {
+            "type": "java",
+            "name": "DistanceVectorSimulation",
+            "request": "launch",
+            "mainClass": "DistanceVectorSimulation",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        },
+        {
+            "type": "java",
+            "name": "DistanceVectorRouting",
+            "request": "launch",
+            "mainClass": "DistanceVectorRouting",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        },
+        {
+            "type": "java",
+            "name": "DistanceVectorAlgorithm",
+            "request": "launch",
+            "mainClass": "DistanceVectorAlgorithm",
+            "projectName": "Distance Vector Algorithm_471e7013"
+        }
+    ]
+}
